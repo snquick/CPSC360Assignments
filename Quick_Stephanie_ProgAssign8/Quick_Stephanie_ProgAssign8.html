@@ -1,0 +1,55 @@
+<!-- 
+Author: Stephanie Quick 
+Program: Prog_Assign8: JS Basics   
+Date: March 25 2020       
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Word Analyzer</title>
+    </head>
+    <body>
+        <onload><h2>Welcome to the Word Analyzer!</h2></onload>
+        <script type="text/javascript"> 
+
+            // Declaring variables
+            var eWord = []; //array to put the words containing 'e' in
+            var words = prompt("Please enter a string to analyze it :)")
+            words = words.split(" "); // splits the words so each word gets read individually 
+
+           // Function to find the longest Word w/ 'E'
+           // Similar to in-class code example
+           function findLongest(longestWord) {
+                var wordLong = ""; 
+
+                // finds the longest word after going through the array 
+                for (var i=0; i<longestWord.length; i++) {
+                    if (wordLong.length < longestWord[i].length) {
+                        wordLong = longestWord[i];
+                    }
+                }
+                return wordLong;
+            }
+
+            // for loop to find the words that were typed by the user 
+            // and to determine which of those had "e" in the word
+            for (var i=0; i<words.length; i++) {
+                var word = words[i];
+                for (var j=0; j<word.length; j++) {
+                    if (word[j] === "e") { // if the word had any char with e, it will then count as one of the words in the array
+                        eWord.push(word); // pushs the word into the array list 
+                        break; 
+                    }
+                }
+            }
+            
+            var longestWord = findLongest(eWord);
+
+            // Using alert to display the three requirements for this project
+            // # of words containing 'e', longest word w/ 'e', & # of chars. 
+            alert("Number of words that contain 'e': " + eWord.length);
+            alert("Longest word that contains the 'e': " + longestWord);
+            alert("Number of characters in the longest word with 'e': " + longestWord.length);
+            </script>
+    </body>
+</html>
